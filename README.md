@@ -3,6 +3,12 @@ This repository contains files for an exercise creating an IG project for OH FSH
 
 ## Practical Example: Building an Allergy Recording Implementation Guide
 
+**Prerequisites:**
+
+* You have cloned the workshop repository to your local machine.
+* You have checked out the FSH-changes branch in VS Code.
+* You have the FSH extension installed in VS Code.
+
 ### 1. Create a Basic Patient Profile
 In your fsh folder, create a new file named patient-profile.fsh.
 
