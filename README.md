@@ -10,9 +10,9 @@ This repository contains files for an exercise creating an IG project for OH FSH
 * You have the FSH extension installed in VS Code.
 
 ### 1. Create a Basic Patient Profile
-In your fsh folder, create a new file named patient-profile.fsh.
+For example: Create a new file named patient-profile.fsh.
 
-// Open patient-profile.fsh and add FSH code: For example
+// Open patient-profile.fsh and add FSH code: 
 
      `Profile: BasicPatientProfile
      Parent: Patient
@@ -23,10 +23,10 @@ In your fsh folder, create a new file named patient-profile.fsh.
      * gender MS`
 
 
-### 2. Create the Allergy Reaction Severity ValueSet (Using External CodeSystem - SNOMED CT)
-In your fsh folder, create a new file named allergy-severity-vs.fsh.
+### 2. Create a ValueSet 
+For example: Create a new file (Using External CodeSystem - SNOMED CT) named allergy-severity-vs.fsh.
 
-// Open allergy-severity-vs.fsh and add FSH code: For example
+// Open allergy-severity-vs.fsh and add FSH code: 
 
     `ValueSet: AllergyReactionSeverityVS
      Id: allergy-severity-vs
@@ -36,10 +36,10 @@ In your fsh folder, create a new file named allergy-severity-vs.fsh.
          where concept is-a 24484000 // Severity of condition (finding)`
 
 
-### 3. Create the Allergy Reaction Severity Extension:
-In your fsh folder, create a new file named allergy-reaction-severity-extension.fsh.
+### 3. Create an Extension:
+For example: Create a new file named allergy-reaction-severity-extension.fsh.
 
-// Open allergy-reaction-severity-extension.fsh and add FSH code: For example
+// Open allergy-reaction-severity-extension.fsh and add FSH code: 
 
     `Extension: AllergyReactionSeverityExt
     Id: allergy-reaction-severity
@@ -51,10 +51,10 @@ In your fsh folder, create a new file named allergy-reaction-severity-extension.
         binding: AllergyReactionSeverityVS (required)`
 
 
-### 4. Create the Allergy Substance CodeSystem (Local)
-In your fsh folder, create a new file named allergy-substance-cs.fsh.
+### 4. Create a CodeSystem (Local)
+For example: Create a new file named allergy-substance-cs.fsh.
 
-// Open allergy-substance-cs.fsh and add FSH code: For example
+// Open allergy-substance-cs.fsh and add FSH code:
 
     `CodeSystem: AllergySubstanceCS
     Id: allergy-substance-cs
@@ -65,10 +65,10 @@ In your fsh folder, create a new file named allergy-substance-cs.fsh.
     * #latex "Latex" "Allergy to latex."`
 
 
-### 5. Create the AllergyIntolerance Profile (with Slicing on reaction)
-In your fsh folder, create a new file named allergy-intolerance-profile.fsh.
+### 5. Create another Profile 
+For example: Create a new file named allergy-intolerance-profile.fsh. (with Slicing on reaction)
 
-// Open allergy-intolerance-profile.fsh and add FSH code: For example
+// Open allergy-intolerance-profile.fsh and add FSH code: 
 
     `Profile: AllergyToPeanutProfile
     Parent: AllergyIntolerance
@@ -96,9 +96,9 @@ It creates a slice named "snomed-manifestation" that is Must Support and require
 
 
 ### 6. Create Example Instances
-In your fsh folder, create a file named allergy-examples.fsh.
+For example: Create a file named allergy-examples.fsh.
 
-// Open allergy-examples.fsh and add FSH code: For example
+// Open allergy-examples.fsh and add FSH code:
 
     `Instance: PatientAlice
     InstanceOf: BasicPatientProfile
@@ -130,7 +130,7 @@ In your fsh folder, create a file named allergy-examples.fsh.
 
 We need to create an example PatientAlice instance.
 We need to create an AllergyIntolerance instance named PeanutAllergyAlice that references PatientAlice.
-In the Instance above, the substance is coded as "peanut" from our local CodeSystem (note the placeholder URL - replace with your IG's actual URL if publishing).
+In the Instance above, the substance is coded as "peanut" from our local CodeSystem
 We included a reaction with a SNOMED CT code for "Hives" and include our AllergyReactionSeverityExt with a value indicating "Moderate" severity (using an inline instance referencing SNOMED CT).
 
 
