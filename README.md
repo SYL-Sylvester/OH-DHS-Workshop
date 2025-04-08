@@ -22,12 +22,12 @@ For example: Create a new file named patient-profile.fsh.
      * name MS
      * gender MS
 
-    Instance: PatientAlice
-    InstanceOf: BasicPatientProfile
-    Usage: #example
-    * name.given = "Alice"
-    * name.family = "Smith"
-    * gender = #female
+     Instance: PatientAlice
+     InstanceOf: BasicPatientProfile
+     Usage: #example
+     * name.given = "Alice"
+     * name.family = "Smith"
+     * gender = #female
 
 
 ### 2. Create a ValueSet 
@@ -35,18 +35,18 @@ For example: Create a new file (Using External CodeSystem - SNOMED CT) named all
 
 // Open allergy-severity-vs.fsh and add FSH code: 
 
-    ValueSet: AllergyReactionSeverityVS
-    Id: allergy-severity-vs
-    Title: "Allergy Reaction Severity Value Set"
-    Description: "A value set for indicating the severity of an allergy reaction, using SNOMED CT."
+     ValueSet: AllergyReactionSeverityVS
+     Id: allergy-severity-vs
+     Title: "Allergy Reaction Severity Value Set"
+     Description: "A value set for indicating the severity of an allergy reaction, using SNOMED CT."
      * include codes from system http://snomed.info/sct where concept is-a #24484000 // Severity of condition (finding)
-     
+          
      Instance: SeverityModerate
      InstanceOf: AllergyReactionSeverityVS
      Usage: #inline
      * coding[0].system = "http://snomed.info/sct"
      * coding[0].code = "6736005" // Moderate (qualifier value)
-     * coding[0].display = "Moderate"`
+     * coding[0].display = "Moderate"
 
 
 
@@ -55,12 +55,12 @@ For example: Create a new file named allergy-reaction-severity-extension.fsh.
 
 // Open allergy-reaction-severity-extension.fsh and add FSH code: 
 
-    Extension: AllergyReactionSeverityExt
-    Id: allergy-reaction-severity
-    Title: "Allergy Reaction Severity Extension"
-    Description: "Extension to record the severity of an allergy reaction."
-    Context: AllergyIntolerance.reaction
-    * ValueCodeableConcept from AllergyReactionSeverityVS (required)`
+     Extension: AllergyReactionSeverityExt
+     Id: allergy-reaction-severity
+     Title: "Allergy Reaction Severity Extension"
+     Description: "Extension to record the severity of an allergy reaction."
+     Context: AllergyIntolerance.reaction
+     * ValueCodeableConcept from AllergyReactionSeverityVS (required)
 
 
 ### 4. Create a CodeSystem (Local)
@@ -135,7 +135,6 @@ For example: Create a new file named allergy-intolerance-profile.fsh. (with Slic
 
 
 // Explanation:
-
 We need to create an example PatientAlice instance.
 We need to create an AllergyIntolerance instance named PeanutAllergyAlice that references PatientAlice.
 In the Instance above, the substance is coded as "peanut" from our local CodeSystem
