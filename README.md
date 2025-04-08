@@ -98,13 +98,6 @@ For example: Create a new file named allergy-intolerance-profile.fsh. (with Slic
      * reaction ^slicing.rules = #open
      * reaction[with-severity] MS where extension contains AllergyReactionSeverityExt
 
-     // Explanation:
-
-    This profile requires a patient and a substance.
-    It constrains the substance to be coded specifically as "peanut" from our AllergySubstanceCS.
-    It requires at least one reaction and introduces slicing based on the manifestation.coding.system.
-    It creates a slice named "snomed-manifestation" that is Must Support and requires a coding from SNOMED CT, and includes our AllergyReactionSeverityExt on this slice.
-
     Instance: PeanutAllergyAlice
     InstanceOf: AllergyToPeanutProfile
     Usage: #example
@@ -116,6 +109,13 @@ For example: Create a new file named allergy-intolerance-profile.fsh. (with Slic
     * reaction[snomed-manifestation].manifestation.coding[0].code = "247472004" // Hives
     * reaction[snomed-manifestation].manifestation.coding[0].display = "Urticaria"
     * reaction[snomed-manifestation].extension[AllergyReactionSeverityExt].valueCodeableConcept = SeverityModerate
+
+// Explanation:
+
+This profile requires a patient and a substance.
+It constrains the substance to be coded specifically as "peanut" from our AllergySubstanceCS.
+It requires at least one reaction and introduces slicing based on the manifestation.coding.system.
+It creates a slice named "snomed-manifestation" that is Must Support and requires a coding from SNOMED CT, and includes our AllergyReactionSeverityExt on this slice.
 
 
 
