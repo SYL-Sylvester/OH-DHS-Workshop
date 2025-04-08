@@ -149,6 +149,7 @@ We included a reaction with a SNOMED CT code for "Hives" and include our Allergy
 
 ### 9. Run IG Publisher
 * Run "./_updatePublisher.bat" script if using the publisher for the first time.
+  then...
 * Run : "./_genonce.bat" to generate IG
 
 
