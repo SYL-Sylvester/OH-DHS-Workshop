@@ -82,6 +82,42 @@ For example: Create a new file named allergy-intolerance-profile.fsh. (with Slic
 
 // Open allergy-intolerance-profile.fsh and add FSH code: 
 
+    Profile: AllergyToPeanutProfile
+     Parent: AllergyIntolerance
+     Id: allergy-to-peanut
+     Title: "AllergyIntolerance Profile for Peanut Allergy"
+     Description: "A profile for recording a patient's allergy specifically to peanuts, including reaction details with a slice for severity."
+
+     * patient MS
+     * substance MS
+     * substance.coding MS
+     * substance.coding only AllergySubstanceCS iss-a #peanut 
+     * reaction 1..* MS
+     * reaction ^slicing.discriminator.type = #exists
+     * reaction ^slicing.discriminator.path = "extension(AllergyReactionSeverityExt)"
+     * reaction ^slicing.rules = #open
+     * reaction[with-severity] MS where extension contains AllergyReactionSeverityExt
+
+     // Explanation:
+
+    This profile requires a patient and a substance.
+    It constrains the substance to be coded specifically as "peanut" from our AllergySubstanceCS.
+    It requires at least one reaction and introduces slicing based on the manifestation.coding.system.
+    It creates a slice named "snomed-manifestation" that is Must Support and requires a coding from SNOMED CT, and includes our AllergyReactionSeverityExt on this slice.
+
+    Instance: PeanutAllergyAlice
+    InstanceOf: AllergyToPeanutProfile
+    Usage: #example
+    * patient = Reference(PatientAlice)
+    * substance.coding[0].system = "http://example.org/fhir/allergy-substances" // Replace with your IG's CodeSystem URL if publishing
+    * substance.coding[0].code = #peanut
+    * substance.coding[0].display = "Peanut"
+    * reaction[snomed-manifestation].manifestation.coding[0].system = "http://snomed.info/sct"
+    * reaction[snomed-manifestation].manifestation.coding[0].code = "247472004" // Hives
+    * reaction[snomed-manifestation].manifestation.coding[0].display = "Urticaria"
+    * reaction[snomed-manifestation].extension[AllergyReactionSeverityExt].valueCodeableConcept = SeverityModerate
+
+
 
 ### 7. Save All Files: Ensure all your .fsh files are saved.
 
