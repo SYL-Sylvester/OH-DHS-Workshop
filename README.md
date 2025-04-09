@@ -1,7 +1,7 @@
 # OH-DHS-Workshop
 This repository contains information for learning to create an IG project for use in OH FSH Onsite workshop April 11th, 2025.
 
-## Practical Example: Building an Allergy Recording Implementation Guide with a reaction severity extension and constraints on allergy substance.
+## Practical Example: Building an Allergy Recording Implementation Guide with constraints on reaction severity and allergy substance.
 
 
 ### 1. Create a Basic Patient Profile
@@ -37,21 +37,7 @@ For example: Create a new file (Using External CodeSystem - SNOMED CT) named all
     * include codes from system http://snomed.info/sct where concept is-a #24484000 // Severity of condition (finding)
 
 
-### 3. Create an Extension:
-For example: Create a new file named allergy-reaction-severity-extension.fsh.
-
-// Open allergy-reaction-severity-extension.fsh and add FSH code: 
-
-    Extension: AllergyReactionSeverityExt
-    Id: allergy-reaction-severity
-    Title: "Allergy Reaction Severity Extension"
-    Description: "Extension to record the severity of an allergy reaction."
-    Context: AllergyIntolerance.reaction
-    * value[x] only CodeableConcept
-    * valueCodeableConcept from AllergyReactionSeverityVS (required)
-
-
-### 4. Create a CodeSystem (Local)
+### 3. Create a CodeSystem (Local)
 For example: Create a new file named allergy-substance-cs.fsh.
 
 // Open allergy-substance-cs.fsh and add FSH code:
@@ -65,7 +51,7 @@ For example: Create a new file named allergy-substance-cs.fsh.
     * #latex "Latex" "Allergy to latex."`
 
 
-### 5. Create Allergy Substance ValueSet 
+### 4. Create Allergy Substance ValueSet 
 For example: Create a new file (Using External CodeSystem - SNOMED CT) named allergy-substance-vs.fsh.
 
 // Open allergy-substance-vs.fsh and add FSH code:
@@ -79,7 +65,7 @@ For example: Create a new file (Using External CodeSystem - SNOMED CT) named all
     , AllergySubstanceCS#shellfish "shellfish
 
 
-### 6. Create an Allergy Intolerance Profile
+### 5. Create an Allergy Intolerance Profile
 
 For example: Create a new file named allergy-intolerance-profile.fsh
 
@@ -93,7 +79,7 @@ For example: Create a new file named allergy-intolerance-profile.fsh
     * code 1..1 MS
     * code from AllergySubstanceVS (extensible)
     * reaction 1..1 MS
-    * reaction.extension contains allergy-reaction-severity 1..1 MS
+    * reaction.severity from AllergyReactionSeverityVS
 
 // Create an Instance of the profile
 
