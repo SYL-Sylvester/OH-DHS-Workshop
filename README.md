@@ -1,7 +1,7 @@
 # OH-DHS-Workshop
 This repository contains information for learning to create an IG project for use in OH FSH Onsite workshop April 11th, 2025.
 
-## Practical Example: Building an Allergy Recording Implementation Guide
+## Practical Example: Building an Allergy Recording Implementation Guide with a reaction severity extension and constraints on allergy substance.
 
 
 ### 1. Create a Basic Patient Profile
