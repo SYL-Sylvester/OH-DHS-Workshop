@@ -105,11 +105,7 @@ For example: Create a new file named allergy-intolerance-profile.fsh
     * reaction[0].manifestation[0].text = "Severe difficulty breathing, swelling"
     * reaction[0].description = "Rapid onset after ingestion of trace amount of peanut."
     * reaction[0].onset = "2023-05-20T14:15:00Z"
-     
-    // 'reaction.extension' for severity: Mandatory (1..1), Must Support
-    // We use the 'allergy-reaction-severity' extension ID defined in the profile.
-    // The value uses a code from the hypothetical AllergyReactionSeverityVS.
-    * reaction[0].extension[allergy-reaction-severity].valueCodeableConcept = http://snomed.info/sct#6736007 "Mild"
+    * reaction[0].severity = #6736007 "Mild"
 
 Save All Files: Ensure all your .fsh files are saved.
 
