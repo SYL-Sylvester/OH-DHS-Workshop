@@ -14,9 +14,8 @@ Develop an Emergency Department (ED) Observation Implementation Guide for Ontari
   * The identifier.system element must be populated with the canonical URL for the Ontario Client Registry (or relevant provincial identifier system).
   * The identifier.value element must contain the patient's unique identifier from the specified system.
   * The identifier.type element SHOULD be populated with a CodeableConcept indicating the type of identifier (e.g., "MRN", "PHN"). A ValueSet for identifier types SHOULD be defined.
-* Optional Elements:
-  * telecom: May be included to capture contact information.
-  * address: May be included to capture address information.
+  * telecom: Must support and occur at least once.
+  
 
 
 ## II. OntarioEDEncounter Profile Requirements:
