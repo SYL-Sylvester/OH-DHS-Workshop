@@ -123,13 +123,13 @@ Develop an Emergency Department (ED) Observation Implementation Guide for Ontari
   * Inclusion Criteria: Include relevant SNOMED CT codes for these common ED complaints chest pain, abdominal pain, headache.
 
 * Identifier Type ValueSet:
- * ca-on-identifier-type.
- * Title: "Ontario Health card number".
- * Description: "A value set for the Health card number (HCN) used for patients in Ontario healthcare."
- * Inclusion Criteria: Include codes representing Health card number (HCN)
+  * ca-on-identifier-type.
+  * Title: "Ontario Health card number".
+  * Description: "A value set for the Health card number (HCN) used for patients in Ontario healthcare."
+  * Inclusion Criteria: Include codes representing Health card number (HCN)
 
 * ED Disposition ValueSet
- * ca-on-disposition
- * Title: "Ontaario ED dispositon codes"
- * Descri[tion: "A value set of disposition codes for discharge of patients from an Ontario Emergency Department"
- * Inclusion Criteria: Include Discharged Home, Admitted to Inpatient and Deceased only.
+  * ca-on-disposition
+  * Title: "Ontaario ED dispositon codes"
+  * Descri[tion: "A value set of disposition codes for discharge of patients from an Ontario Emergency Department"
+  * Inclusion Criteria: Include Discharged Home, Admitted to Inpatient and Deceased only.
