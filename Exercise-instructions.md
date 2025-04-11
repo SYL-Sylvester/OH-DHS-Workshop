@@ -26,7 +26,6 @@ Develop an Emergency Department (ED) Observation Implementation Guide for Ontari
   * class: Must Support and the code element MUST be coded with EMER from the http://terminology.hl7.org/CodeSystem/encounter-class CodeSystem.
   * subject: Must Support and reference an instance of the OntarioEDPatient profile.
   * period: Must Support, with both start and end elements present.
-  * location: Must Support and occur at least once, referencing a Location resource. The location.physicalType SHOULD be bound to a ValueSet of ED-specific location types.
   * reasonCode: May be included to capture the primary reason for the encounter, bound to a ValueSet of common ED presenting complaints (ca-on-ed-presenting-complaints).
   * hospitalization.dischargeDisposition: May be included to record the patient's disposition upon leaving the ED, bound to ca-on-disposition.
 
